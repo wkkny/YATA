@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f5f0" />
+    <title>Todo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="todo-card" aria-label="Your tasks">
+        <form class="add-form" id="add-form">
+          <label class="sr-only" for="task-input">Add a task</label>
+          <input
+            id="task-input"
+            name="task"
+            type="text"
+            maxlength="180"
+            placeholder="Add a task..."
+            autocomplete="off"
+            required
+          />
+          <button class="add-button" type="submit">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+            Add task
+          </button>
+        </form>
+
+        <div class="list-panel">
+          <div class="list-toolbar">
+            <div class="filters" role="group" aria-label="Filter tasks">
+              <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All <span id="all-count">0</span></button>
+              <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Active</button>
+              <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Completed</button>
+            </div>
+            <button class="clear-button" id="clear-completed" type="button" hidden>Clear completed</button>
+          </div>
+
+          <ul class="task-list" id="task-list" aria-live="polite" aria-relevant="additions removals"></ul>
+          <div class="empty-state" id="empty-state">
+            <p class="empty-message" id="empty-message" hidden></p>
+            <span class="empty-illustration" id="empty-illustration" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="8" y="2" width="8" height="4" rx="1" />
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <p class="sr-only" id="app-message" role="status"></p>
+    </main>
+  </body>
+</html>
